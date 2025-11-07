@@ -2,18 +2,64 @@ import { R20Module } from "../../utils/R20Module"
 import { createCSSElement, findByIdAndRemove } from "../../utils/MiscUtils";
 
 const constantStyle = `
+
+#page-toolbar .page-create-new-after {
+  display: none;
+}
+
+#page-toolbar .pages .availablepage .page-duplication {
+  display: none;
+  top: unset;
+  left: unset;
+  width: unset;
+  margin-top: unset;
+  right: 0;
+  padding: 10px;
+  z-index: 10000;
+}
+
+#page-toolbar .pages .availablepage .page-duplication .page-duplication__body .form-group .checkbox {
+  width: unset;
+}
+
+#page-toolbar .pages .availablepage .page-actions {
+  position: unset;
+  top: unset;
+  right: unset;
+  background-color: unset;
+  width: unset;
+  border-radius: unset;
+  border: unset;
+  flex-direction: unset;
+  justify-content: unset;
+  box-shadow: unset;
+  padding-right: 8px;
+}
+
+#page-toolbar .pages .availablepage span.page-title {
+  position: unset;
+  bottom: unset;
+  width: unset;
+  text-align: unset;
+  display: unset;
+  font-size: unset;
+  max-width: unset;
+}
+
 #page-toolbar {
-    right: unset;
-    left: unset;
-    max-width: 486px;
+  right: unset;
+  left: unset;
+  max-width: 486px;
 
-    max-height: 80%;
-    width: 100%;
-    height: 100%;
+  max-height: 80%;
+  width: 100%;
+  height: 100%;
 
-    background-color: #222;
+  background-color: #222;
 
-    border-radius: unset;
+  border-radius: unset;
+
+  z-index: 10500;
 }
 
 #page-toolbar .pages .availablepage span input {
@@ -118,7 +164,7 @@ const constantStyle = `
     max-width: unset;
     width: auto;
     flex: 10;
-    order: 3;
+    order: 0;
     margin-left: 8px;
     font-size: 1.1em;
     white-space: pre;
@@ -153,7 +199,6 @@ div#page-toolbar:not(.closed) > div.handle.showtip {
     display: flex !important;
     flex-direction: column;
     height: auto;
-    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -198,17 +243,18 @@ class AlternativePageToolbarMenu extends R20Module.OnAppLoadBase {
         let variableStyle = `
 #page-toolbar {
     ${cfg.location === "right"
-            ? "right: 400px"
+            ? "right: 440px"
             : "left: 128px"};
     opacity: ${cfg.opacity};
 }
-
-#page-toolbar .handle {
-    ${cfg.location === "right"
-            ? "right: -30px !important; left: unset;"
-            : "left: -30px; right: unset !important;"};
-}
 `;
+        if(cfg.location === "left") {
+          variableStyle += `
+            #page-toolbar .handle {
+              "left: -30px; right: unset !important;"
+            }
+          `;
+        }
 
         this.addStyleAsElement(AlternativePageToolbarMenu.constantSheetId, constantStyle);
         this.addStyleAsElement(AlternativePageToolbarMenu.variableSheetId, variableStyle);
@@ -308,4 +354,7 @@ class AlternativePageToolbarMenu extends R20Module.OnAppLoadBase {
     }
 }
 
-if (R20Module.canInstall()) new AlternativePageToolbarMenu().install();
+export default () => {
+  new AlternativePageToolbarMenu().install();
+};
+

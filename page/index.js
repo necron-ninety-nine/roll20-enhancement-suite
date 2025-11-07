@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import GTag from 'GTag.js'
 import NavBar from 'NavBar.js';
 
 function Index() {
@@ -13,7 +14,7 @@ function Index() {
             <div className="text-bg">
                 <h1 style={{borderBottom: "2px solid gray", textAlign: "center"}}>VTT Enhancement Suite</h1>
                 <b >An unofficial quality of life and workflow extension for Roll20</b>
-                <div><b>By <a style={{color: "#000a60"}}href="https://twitter.com/justas_dabrila">Justas "stormy" Dabrila</a></b></div>
+                <div><b>By <a style={{color: "#000a60"}}href="https://twitter.com/justas_dabrila">Justas Dabrila</a></b></div>
 
                 <div className="browser-icons">
 
@@ -22,18 +23,23 @@ function Index() {
                             <img src="firefox.png" alt=""/>
                         </a>
 
-                        <a href="chrome">
+                        <a href="chrome.html">
                             <img src="chrome.png" alt=""/>
                         </a>
 
-                        <a href="https://github.com/SSStormy/roll20-enhancement-suite">
+                        <a href="https://github.com/justas-d/roll20-enhancement-suite">
                             <img className="invert" src="github.png" alt=""/>
                         </a>
                     </span>
                 </div>
 
                 <NavBar noLanding={true}/>
+
+                <a href="https://www.patreon.com/bePatron?u=11619189" rel="noopener noreferrer">
+                  <img src="patreon.webp" alt="Become a Patron" style={{width: "217px", height: "51px"}}/>
+                </a>
             </div>
+          <GTag/>
         </div>
     )
 }

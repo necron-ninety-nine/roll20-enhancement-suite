@@ -21,6 +21,14 @@ class NoAnimTokenRadial implements IAnimationMod {
     transition:none;
 }
 
+#radial-menu .markermenu {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition:none;
+  transition:none;
+}
+
 #radial-menu .button.open {
     -webkit-transition-timing-function: none;
     -webkit-transition-timing-function: none;
@@ -41,10 +49,10 @@ class NoAnimTokenRadial implements IAnimationMod {
 
 class NoPageToolbarAnim implements IAnimationMod {
 
+  /*
     private togglePageToolbar() {
         const toolbar = document.querySelector("#page-toolbar") as any;
         const isOpen = toolbar.classList.contains("closed");
-        console.log(`toggling ${isOpen}`);
 
         if (isOpen) {
             $("#page-toolbar .pages").show();
@@ -57,13 +65,14 @@ class NoPageToolbarAnim implements IAnimationMod {
             toolbar.classList.add("closed");
         }
     }
+    */
 
     install() {
-        window.r20es.togglePageToolbar = this.togglePageToolbar;
+        //window.r20es.togglePageToolbar = this.togglePageToolbar;
     }
 
     uninstall() {
-        window.r20es.togglePageToolbar = null;
+        //window.r20es.togglePageToolbar = null;
     }
 
 }
@@ -155,4 +164,7 @@ class AnimationDisableModule extends R20Module.OnAppLoadBase {
     }
 }
 
-if (R20Module.canInstall()) new AnimationDisableModule().install();
+export default () => {
+  new AnimationDisableModule().install();
+};
+

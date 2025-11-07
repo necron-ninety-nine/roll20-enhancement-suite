@@ -3,7 +3,6 @@ import Features from "../page/features";
 import Index from "../page/index";
 import ReactDOMServer from 'react-dom/server';
 import React from 'react';
-import Contribute from "../page/contribute";
 import Chrome from "../page/chrome";
 
 const fs = require("fs");
@@ -11,16 +10,15 @@ const path = require("path");
 
 const buildDir = "../r20es-web/";
 
-const addStaticFile = (mappedName, sourcePath) => fs.copyFile(sourcePath, path.join(buildDir, mappedName), console.log);
+const addStaticFile = (mappedName, sourcePath) => fs.copyFile(sourcePath, path.join(buildDir, mappedName), () => {});
 
 const buildPage = (fx, resource) => {
-    addStaticFile(`${resource}.css`, `./page/${resource}.css`);
-    const data = ReactDOMServer.renderToStaticMarkup(fx);
+  addStaticFile(`${resource}.css`, `./page/${resource}.css`);
+  const data = ReactDOMServer.renderToStaticMarkup(fx);
 
-    const page = `<!doctype <!DOCTYPE html>
+  const page = `<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>VTT Enhancement Suite</title>
@@ -30,35 +28,35 @@ const buildPage = (fx, resource) => {
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="${resource}.css">
-
-</head>
-
-<body>
-${data}    
-</body>
-
+  </head>
+  <body>
+    ${data}    
+  </body>
 </html>
 `;
 
-    fs.writeFile(path.join(buildDir, resource +".html"), page, console.log);
+  fs.writeFile(path.join(buildDir, resource +".html"), page, () => {});
 }
+
 buildPage(<About/>, "about");
 buildPage(<Features/>, "features");
 buildPage(<Index/>, "index");
-buildPage(<Contribute/>, "contribute");
 buildPage(<Chrome/>, "chrome");
 
 const addStaticFolder = (folder) => {
-    fs.readdirSync(folder).forEach(f => {
-        addStaticFile(f, folder + f);
-    });
+  fs.readdirSync(folder).forEach(f => {
+    addStaticFile(f, folder + f);
+  });
 }
 
 addStaticFolder("./assets/settings/");
 addStaticFolder("./assets/site/");
+addStaticFile("latest_chrome_version", "./page/latest_chrome_version");
+addStaticFile("tags.js", "./page/tags.js");
+addStaticFile("contribute.html", "./page/contribute.html");
 addStaticFile("logo.svg", "./assets/logo/logo.svg");
 addStaticFile("main.css", "./page/main.css");
 addStaticFile("more.css", "./page/more.css");
 addStaticFile("takedown.png", "./page/takedown.png");
-addStaticFile("r20es_1.15.21_chrome.zip", "./page/r20es_1.15.21_chrome.zip");
+addStaticFile("patreon.webp", "./page/patreon.webp");
 

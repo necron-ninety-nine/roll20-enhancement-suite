@@ -1,87 +1,89 @@
 import {R20Module} from "../../utils/R20Module";
 import {DOM} from "../../utils/DOM";
-import {getExtUrlFromPage} from "../../utils/MiscUtils";
 import WelcomePopup from "./WelcomePopup";
 import ChangelogPopup from "./ChangelogPopup";
 import {R20} from "../../utils/R20";
 import {Config} from "../../utils/Config";
 
-declare namespace build {
-    export const R20ES_VERSION: string;
-}
-
 class WelcomeModule extends R20Module.OnAppLoadBase {
-    private welcome: WelcomePopup;
-    private changelog: ChangelogPopup;
+  private welcome: WelcomePopup;
+  private changelog: ChangelogPopup;
 
-    public constructor() {
-        super(__dirname);
-    }
+  public constructor() {
+    super(__dirname);
+  }
 
-    private sendWelcomeMessage() {
-        setTimeout(() => {
+  private sendWelcomeMessage() {
+    setTimeout(() => {
+      const cfg = this.getHook().config;
 
-            const cfg = this.getHook().config;
-
-            if (cfg.showWelcomePopup) {
-                R20.saySystem(`
-<h2 style="color: whitesmoke">VTT Enhancement Suite</h2>
-<span>The enhancement suite (aka R20ES) has been loaded!</span>
+      if (cfg.showWelcomePopup) {
+        R20.saySystem(`
+<h2 style="font-size: 18px; color: whitesmoke">VTT Enhancement Suite</h2>
+<span>The enhancement suite (aka R20ES) v${BUILD_CONSTANT_VERSION} has been loaded!</span>
 <br/>
 <br/>
 
 <a href="${Config.discordInvite}">
-    <img style="width: 26px; height: 26px" src="https://discordapp.com/assets/1c8a54f25d101bdc607cec7228247a9a.svg"/>
-    <span style="color: orange;  margin-left:5px"> 
-        Discord Server
-    </span>
+<img style="margin-right: 5px; width: 26px; height: 26px" src="https://discordapp.com/assets/1c8a54f25d101bdc607cec7228247a9a.svg"/> <span style="color: orange;"><b>VTTES Discord Server</b></span>
 </a>
 
 <br/>
 
 <a class="bmc-button" target="_blank" href=${Config.contributeUrl}>
-    <img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"/>
-    <span style="color: orange; margin-left:5px">
-        Buy me a coffee
-    </span>
+<span style="color: orange; margin-left:5px">
+<img style="margin-right: 5px; width: 26px; height: 26px" src="https://github.com/justas-d/roll20-enhancement-suite/raw/b7db254d7c6487ac54f1fb8d6d5aeb966306f813/assets/promotional/Digital-Patreon-Logo_FieryCoral.png" alt=""></img><b>Patreon</b>
+</span>
 </a>
 `);
-            }
-        }, 2000);
-    }
 
-    public setup() {
-
-        const root = document.getElementById("playerzone");
-        let elem = null;
-
-        const cfg = this.getHook().config;
-
-        this.sendWelcomeMessage();
-
-        console.log(`showChangelog: ${cfg.showChangelog}`);
-        console.log(`cfg.previousVersion": ${cfg.previousVersion}`);
-        console.log(`R20ES_VERSION": ${build.R20ES_VERSION}`);
-
-        if (cfg.showStartupGuide) {
-            this.welcome = new WelcomePopup(this);
-            elem = this.welcome.render();
-        } else if (cfg.showChangelog && cfg.previousVersion !== build.R20ES_VERSION) {
-            this.changelog = new ChangelogPopup();
-            elem = this.changelog.render();
+        if(BUILD_CONSTANT_TARGET_PLATFORM === "chrome") {
+          R20.saySystem(`
+<b>VTTES is now available as an auto-updating userscript for <img style="margin-left: 4px; margin-right: 4px; width: 26px; height: 26px" src="https://github.com/justas-d/roll20-enhancement-suite/raw/b7db254d7c6487ac54f1fb8d6d5aeb966306f813/assets/promotional/Digital-Patreon-Logo_FieryCoral.png" alt=""></img>Patrons!</b>
+View the full details <a style="color: orange" class="bmc-button" target="_blank" href="https://justas-d.github.io/roll20-enhancement-suite/chrome.html">here</a>.
+`);
         }
+      }
+    }, 2000);
+  }
 
-        this.setConfigValue("previousVersion", build.R20ES_VERSION);
+  public setup() {
+    const root = document.getElementById("playerzone");
+    let elem = null;
 
-        if (elem) {
-            root.parentElement.insertBefore(elem, root);
-        }
+    const cfg = this.getHook().config;
+
+    this.sendWelcomeMessage();
+
+    console.log(`showChangelog: ${cfg.showChangelog}`);
+    console.log(`cfg.previousVersion": ${cfg.previousVersion}`);
+    console.log(`BUILD_CONSTANT_VERSION": ${BUILD_CONSTANT_VERSION}`);
+
+    if(cfg.showStartupGuide) {
+      this.welcome = new WelcomePopup(this);
+      elem = this.welcome.render();
+    } 
+    else if(cfg.showChangelog && cfg.previousVersion !== BUILD_CONSTANT_VERSION) {
+      this.changelog = new ChangelogPopup();
+      elem = this.changelog.render();
     }
 
-    public dispose() {
-        super.dispose();
-        if (this.welcome) this.welcome.dispose();
+    this.setConfigValue("previousVersion", BUILD_CONSTANT_VERSION);
+
+    if(elem) {
+      root.parentElement.insertBefore(elem, root);
     }
+  }
+
+  public dispose() {
+    super.dispose();
+    if (this.welcome) {
+      this.welcome.dispose();
+    }
+  }
 }
 
-if (R20Module.canInstall()) new WelcomeModule().install();
+export default () => {
+  new WelcomeModule().install();
+};
+

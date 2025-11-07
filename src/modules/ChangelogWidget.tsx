@@ -4,10 +4,6 @@ import {Config} from "../utils/Config";
 import MediaWidget from "../MediaWidget";
 import * as semverCompare from "semver-compare";
 
-declare namespace build {
-    export const R20ES_CHANGELOG: string;
-}
-
 interface IChangelog {
     current: string;
     versions: { [version: string]: IVersion };
@@ -42,17 +38,17 @@ class ChangelogWidget extends DOM.ElementBase {
     public constructor({listAllVersions}: any) {
         super();
 
-        const changelogData: IChangelog = JSON.parse(build.R20ES_CHANGELOG);
+        const changelogData: IChangelog = JSON.parse(BUILD_CONSTANT_CHANGELOG);
 
         if (listAllVersions) {
-            console.log("in list all");
-            console.log(changelogData.versions);
+            //console.log("in list all");
+            //console.log(changelogData.versions);
             for (const versionName in changelogData.versions) {
                 this.prepareChanges(changelogData.versions[versionName], versionName)
             }
 
         } else {
-            console.log("in else");
+            //console.log("in else");
             const current = changelogData.versions[changelogData.current];
             this.prepareChanges(current, changelogData.current)
         }
@@ -64,7 +60,7 @@ class ChangelogWidget extends DOM.ElementBase {
     }
 
     private prepareChanges(version: IVersion, semverString: string) {
-        console.log(`prep ${version.info.title}`);
+        //console.log(`prep ${version.info.title}`);
         this.preparedData.push({
             data: version,
             mediaUrl: strIsNullOrEmpty(version.info.media) ? "" : Config.website + version.info.media,

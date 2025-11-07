@@ -1,5 +1,5 @@
 {
-    "current": "1.15.21",
+    "current": "1.28.22",
     "versions": {
         "1.4.0": {
             "info": {
@@ -1229,6 +1229,1662 @@
                 {
                     "id": "",
                     "content": "Animated Backgrounds: Fix broken zooming due to the January 21st Roll20 update."
+                }
+            ]
+        },
+        "1.15.22": {
+            "info": {
+                "title": "LibreAudio Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "LibreAudio: fixed audio playback not working as of 2020-03-31"
+                }
+            ]
+        },
+        "1.15.23": {
+            "info": {
+                "title": "Macro Generator Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Macro Generator: Fix NPC trait and reaction macro descriptions (thanks Rimane for the report!)"
+                }
+            ]
+        },
+        "1.15.24": {
+            "info": {
+                "title": "Token Status Display Adjustments fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Token Status Display Adjustments: Fix it from being broken (thanks Kendros for the report!)"
+                }
+            ]
+        },
+        "1.15.25": {
+            "info": {
+                "title": "Token Status Display Adjustments fix 2",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Token Status Display Adjustments: Fix it not initializing on player sessions (thanks Halvralf and HeadsetRuler for the report!)"
+                }
+            ]
+        },
+        "1.15.26": {
+            "info": {
+                "title": "Chrome Update Checker & Some Tweaks",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add an update checker for Chrome which will post a message in chat when a new update is out."
+                },
+                {
+                    "id": "",
+                    "content": "Uh Oh: Update the problem popup with some new updated troubleshooting directions."
+                },
+                {
+                    "id": "",
+                    "content": "Settings: Fix gray-ish description text color."
+                },
+                {
+                    "id": "",
+                    "content": "About: Tweak formatting"
+                }
+            ]
+        },
+        "1.15.27": {
+            "info": {
+                "title": "Fix Scale Token Names By Size Module",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix Scale Token Names By Size module not scaling nameplates. (thanks, seba1708 & Sabre Runner for the report!)"
+                }
+            ]
+        },
+        "1.15.29": {
+            "info": {
+                "title": "Roll & Apply Hit Dice Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix Roll & Apply Hit Dice module not setting token health."
+                }
+            ]
+        },
+        "1.15.30": {
+            "info": {
+                "title": "Fix Animated Backgrounds",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix improper animated background zooming."
+                }
+            ]
+        },
+        "1.15.31": {
+            "info": {
+                "title": "Settings Media Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed broken media in the settings menu. (thanks Niels_mit_e for the report!)"
+                }
+            ]
+        },
+        "1.15.32": {
+            "info": {
+                "title": "Fix Animation Disable Module",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix animations not being disabled as of 2020-10-20 (thanks pella, Anthony_ and ShaunSullivan for the report!)"
+                }
+            ]
+        },
+        "1.15.33": {
+            "info": {
+                "title": "Macro Generator for Pathfinder 2e",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added a macro generator for Pathfinder 2e sheets. (by Blesmol)"
+                }
+            ]
+        },
+        "1.15.34": {
+            "info": {
+                "title": "Pathfinder 2e Macro Generator improvement",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "PF2 Macro Generator: Add the ability to generate NPC attack macros."
+                }
+            ]
+        },
+        "1.15.35": {
+            "info": {
+                "title": "Alternative Page Toolbar Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed the alternative page toolbar having broken styling."
+                }
+            ]
+        },
+        "1.15.36": {
+            "info": {
+                "title": "2020-12-22 Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed the extension not loading properly as of 2020-12-22."
+                }
+            ]
+        },
+        "1.15.37": {
+            "info": {
+                "title": "Bug Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Duplicate Button: fix the 'Duplicate' button in the journal context menu not doing anything. Thanks (Niztael, Nostros & osobuho for the report!)"
+                }
+            ]
+        },
+        "1.15.38": {
+            "info": {
+                "title": "Character Sheet Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix various character sheet tabs not appearing and breaking character sheets."
+                },
+                {
+                    "id": "",
+                    "content": "TokenLayerDrawing: fix possible renderer crash when VTTES is disabled."
+                }
+            ]
+        },
+        "1.15.39": {
+            "info": {
+                "title": "Revert Character Sheet Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Revert character sheet tab fix as Roll20 reverted theirs."
+                }
+            ]
+        },
+        "1.16": {
+            "info": {
+                "title": "Quality of Life Stuff + Sheet Tab Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added setting importing and exporting."
+                },
+                {
+                    "id": "",
+                    "content": "Added support for importing multiple characters or tables at the same time."
+                },
+                {
+                    "id": "",
+                    "content": "Fix character sheet tabs not showing up. (until Roll20 breaks it again)"
+                },
+                {
+                    "id": "",
+                    "content": "Adjusted styling in the character token editor."
+                },
+                {
+                    "id": "",
+                    "content": "Various dialog styling fixes."
+                },
+                {
+                    "id": "",
+                    "content": "Cleaned up the character export/overwrite tab."
+                }
+            ]
+        },
+        "1.17.0": {
+            "info": {
+                "title": "Fixes and some new modules.",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add 'Hide Stuck Top-Left Tipsy Popups' by Pharonix. Disabled by default as this will disable other popups. Use when needed."
+                },
+                {
+                    "id": "",
+                    "content": "Add Set Character Avatar From URL module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Libre Audio not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Remember Text Tool Settings not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Animation Disable for page toolbar not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Set Table Entry Avatar By Url not working."
+                }
+            ]
+        },
+        "1.17.1": {
+            "info": {
+                "title": "Loading screen fix.",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed the loading screens sometimes taking a big longer to load."
+                }
+            ]
+        },
+        "1.18": {
+            "info": {
+                "title": "UDL in the Character Token Editor",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add 'Updated Dynamic Lighting' to the character token editor."
+                },
+                {
+                    "id": "",
+                    "content": "Fix disable player drawing toggle button not appearing."
+                },
+                {
+                    "id": "",
+                    "content": "Fix bulk macro dialog stretching on Chrome."
+                },
+                {
+                    "id": "",
+                    "content": "Add an option to roll bulk rolls sequentially (disabled by default)."
+                }
+            ]
+        },
+        "1.19": {
+            "info": {
+                "title": "Handout Exporting",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added handout exporting & overwriting. (voted on by Patrons)"
+                },
+                {
+                    "id": "",
+                    "content": "Replaced the character importer with a handout & character importer."
+                },
+                {
+                    "id": "",
+                    "content": "Fix character sheets sometimes failing to load (thanks to SamuelDancing, DonnieSlash and Bernd for the report!)."
+                }
+            ]
+        },
+        "1.19.1": {
+            "info": {
+                "title": "Small Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Hide handout Export & Overwrite buttons when the module is disabled (thanks to KartoffelKaiser for the report!)."
+                }
+            ]
+        },
+        "1.20": {
+            "info": {
+                "title": "Default Camera Position Module",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added the Default Camera Position module. (voted on by Patrons)"
+                }
+            ]
+        },
+        "1.21": {
+            "info": {
+                "title": "Character Component Import/Export",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add character component (weapon, spell, item etc) importing/exporting (voted on by Patrons). This can be accessed in the export tab on character sheets."
+                },
+                {
+                    "id": "",
+                    "content": "Fix character overwriting for non-GMs (thanks, rhodenbarr, for the report!)"
+                }
+            ]
+        },
+        "1.22": {
+            "info": {
+                "title": "Handout Image From URL",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add the 'Set Handout Image From URL' module (voted on by Patrons)."
+                },
+                {
+                    "id": "",
+                    "content": "Slight improvements to the 'Set Character Avatar From URL' module."
+                }
+            ]
+        },
+        "1.22.1": {
+            "info": {
+                "title": "Quickfix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix a bug where Roll20 was failing to load for Firefox users without specific adblockers."
+                }
+            ]
+        },
+        "1.23": {
+            "info": {
+                "title": "Custom Line Widths + Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add the \"Custom Line Widths\" module (voted on by Patrons)."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the status icon menu overlapping with token bars (thanks, Que, for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Make the 'set character avatar from URL' button appear for non-gms (thanks, Alastor, for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Update the dark mode script URL (thanks, Airaghast, for pointing it out!)"
+                },
+                {
+                    "id": "",
+                    "content": "Fix some typos."
+                }
+            ]
+        },
+        "1.24.0": {
+            "info": {
+                "title": "Extra Rulers & Token Counter",
+                "media": "extra_rulers.png"
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add Extra Rulers module (voted on by Patrons)."
+                },
+                {
+                    "id": "",
+                    "content": "Add Token Counter module (submitted by OLStefan)."
+                }
+            ]
+        },
+        "1.24.1": {
+            "info": {
+                "title": "Tweaks & Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Set Table Entry Avatarby URL: fix some urls not working (thanks, Qwert, for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Extra Rulers: default to 1 rad for cones degrees."
+                },
+                {
+                    "id": "",
+                    "content": "Character Token Modifier: Show previous token image url."
+                },
+                {
+                    "id": "",
+                    "content": "Handout Image From URL: Show previous image url."
+                },
+                {
+                    "id": "",
+                    "content": "Set Table Entry Avatarby URL: Show previous image url."
+                },
+                {
+                    "id": "",
+                    "content": "Character Avatar From URL: Show previous image url."
+                }
+            ]
+        },
+        "1.25.0": {
+            "info": {
+                "title": "Bug Fixes & Userscript Prep",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Animation Disable: Fix token and radial menu animation disabling not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix a loading bug on chrome that made the page toolbar button disappear and the canvas to be invisible."
+                }
+            ]
+        },
+        "1.25.2": {
+            "info": {
+                "title": "Chrome Extension Bug Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix handout text editor dropdowns not showing. (thanks, Batdaf, for the report!)"
+                }
+            ]
+        },
+        "1.25.3": {
+            "info": {
+                "title": "Beyond20 Compatability Bug Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix Beyond20 rolls not being correctly formatted. (thanks, kiloforce, for the report!)"
+                }
+            ]
+        },
+        "1.25.4": {
+            "info": {
+                "title": "Popout Sheet & Chat Archive Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix character sheets not loading on Chrome. (thanks, Batdaf, fillin and Liam, for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Fix chat archive not loading on Chrome. (thanks, Keldin145014, for the report!)"
+                }
+            ]
+        },
+        "1.25.5": {
+            "info": {
+                "title": "Bug Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the animation disable module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the reassign default token id module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the duplicate button module not working (thanks, JoshLikesBeer and Scott, for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Libre Audio fix."
+                },
+                {
+                    "id": "",
+                    "content": "Fix remember text tool settings module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix set table entry avatar from URL module not working (thanks, Jeff Brunner, for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Make the OK button on the changelog always appear at the bottom of the dialog."
+                }
+            ]
+        },
+        "1.25.6": {
+            "info": {
+                "title": "5e sheet NPC Bonus Actions",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added support for NPC Bonus Actions to the 5e sheet macro generator."
+                }
+            ]
+        },
+        "1.25.7": {
+            "info": {
+                "title": "Alternate Page Toolbar Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix spacing in the alternate page toolbar (thanks, Oldewyrm, for the report!)"
+                }
+            ]
+        },
+        "1.25.7.1": {
+            "info": {
+                "title": "Userscript Dialog Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix dialogs not working when using the userscript on Firefox (thanks, lucky13, for the report!)"
+                }
+            ]
+        },
+        "1.26": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed VTTES not loading due to a Roll20 update."
+                }
+            ]
+        },
+        "1.26.1": {
+            "info": {
+                "title": "Duplicate Button Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the character and handout duplicate button not working (thanks, FaustMe, for the report!)"
+                }
+            ]
+        },
+        "1.26.2": {
+            "info": {
+                "title": "Bug Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed a bunch of modules not working due to a Roll20 update."
+                }
+            ]
+        },
+        "1.26.3": {
+            "info": {
+                "title": "Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix some canvas modules not working (thanks, Lycaon1765, for the report!)"
+                }
+            ]
+        },
+        "1.26.4": {
+            "info": {
+                "title": "Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix Extra Rulers from breaking the page rendering."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Token Layer Drawing module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Scale Token Names By Size module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Remember Text Tool Settings module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix 1/4th of Animation Disable not working."
+                }
+            ]
+        },
+        "1.26.5": {
+            "info": {
+                "title": "Audio Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix audio tracks not playing (thanks JasonHunter and BigUglyFace for the report!)."
+                }
+            ]
+        },
+        "1.26.6": {
+            "info": {
+                "title": "Happy 2022!",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix extra rulers breaking the canvas rendering."
+                },
+                {
+                    "id": "",
+                    "content": "Fix libre audio not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix duplicate button not working."
+                }
+            ]
+        },
+        "1.26.7": {
+            "info": {
+                "title": "Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed modules not working"
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the settings button not showing."
+                }
+            ]
+        },
+        "1.26.8": {
+            "info": {
+                "title": "More Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix various modules not working."
+                }
+            ]
+        },
+        "1.26.9": {
+            "info": {
+                "title": "More More Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix various modules not working."
+                }
+            ]
+        },
+        "1.26.10": {
+            "info": {
+                "title": "More^3 Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix various modules not working (thanks, Yorith the Dreamer, for the report!)"
+                }
+            ]
+        },
+        "1.26.11": {
+            "info": {
+                "title": "More^4 Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix various modules not working (thanks, Altia, for the report!)"
+                }
+            ]
+        },
+        "1.26.12": {
+            "info": {
+                "title": "Handout Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix handout dropdown menus not working (thanks, m4rc, for the report!)"
+                }
+            ]
+        },
+        "1.26.13": {
+            "info": {
+                "title": "Audio Fix & Others",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix audio playback not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix remember text tool settings module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix turn tracker modules."
+                }
+            ]
+        },
+        "1.26.14": {
+            "info": {
+                "title": "More Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix audio playback not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix turn tracker modules."
+                }
+            ]
+        },
+        "1.26.15": {
+            "info": {
+                "title": "Fixes (thanks, darthbeep, for the report!)",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Make the disable player drawings module fully load pages."
+                },
+                {
+                    "id": "",
+                    "content": "Make the disable player drawings module not be enabled by default for extra performance."
+                },
+                {
+                    "id": "",
+                    "content": "Make the character token modifier load all pages when updating all tokens."
+                },
+                {
+                    "id": "",
+                    "content": "Fix animation disable module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix initiative modules."
+                },
+                {
+                    "id": "",
+                    "content": "Fix remember text tool settings module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix set table entry avatar by URL module."
+                },
+                {
+                    "id": "",
+                    "content": "Show browser and VTTES version on the 'Uh Oh' popup."
+                }
+            ]
+        },
+        "1.26.16": {
+            "info": {
+                "title": "Fixes & Tweaks",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Add a link to a hosting guide for animated backgrounds in the dialog menu."
+                },
+                {
+                    "id": "",
+                    "content": "Fix set table entry avatar by URL module not working."
+                }
+            ]
+        },
+        "1.26.17": {
+            "info": {
+                "title": "Module Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the duplicate button module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix audio not playing."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the set table entry from URL module."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks LordRoseheart, Gebri and Lyra for the report!"
+                }
+            ]
+        },
+        "1.26.18": {
+            "info": {
+                "title": "More Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the extra rulers module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix libre audio."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the remember text tool settings module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the duplicate button module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix initiative tracker modules."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the animation disable module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the animated background layer module."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks, Andele3025, Maddie, Lyra and Oldewyrm for the report!"
+                }
+            ]
+        },
+        "1.26.19": {
+            "info": {
+                "title": "More^2 Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the set table entry avatar by url module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix remember text tool settings module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix libre audio."
+                },
+                {
+                    "id": "",
+                    "content": "Fix extra rulers."
+                },
+                {
+                    "id": "",
+                    "content": "Fix initiative modules."
+                },
+                {
+                    "id": "",
+                    "content": "Fix animation disable module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the animated background layer module."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks, Oldewyrm, Axecleft and Lyra for the report!"
+                }
+            ]
+        },
+        "1.26.20": {
+            "info": {
+                "title": "Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the duplicate button module."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks, L0st and Lyra, for the report!"
+                }
+            ]
+        },
+        "1.26.21": {
+            "info": {
+                "title": "Fix^2",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix set table entry avatar by url module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix libre audio."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks, Bonesicord, for the report!"
+                }
+            ]
+        },
+        "1.26.22": {
+            "info": {
+                "title": "Fix^3",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix libre audio."
+                },
+                {
+                    "id": "",
+                    "content": "Fix set table entry avatar by url module."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks, serenitygrant and Diego W.M.C, for the report!"
+                }
+            ]
+        },
+        "1.26.23": {
+            "info": {
+                "title": "Fix^4",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the remember text tool settings module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the libre audio module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the extra rulers module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the animated background module."
+                },
+                {
+                    "id": "",
+                    "content": "Thanks, charlie ok, Oldewyrm, Axecleft and Teiroi for the report!"
+                }
+            ]
+        },
+        "1.26.24": {
+            "info": {
+                "title": "Fix^5",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Bunch of module fixes."
+                }
+            ]
+        },
+        "1.27.0": {
+            "info": {
+                "title": "Stability Improvements",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Some internal changes to hopefully improve stability across Roll20 updates."
+                }
+            ]
+        },
+        "1.27.1": {
+            "info": {
+                "title": "Minor Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix animation disable and remember text tool settings modules."
+                },
+                {
+                    "id": "",
+                    "content": "More internal changes for stability."
+                }
+            ]
+        },
+        "1.27.2": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix VTTES not loading."
+                },
+                {
+                    "id": "",
+                    "content": "Thank you to everyone for reporting the issue!"
+                }
+            ]
+        },
+        "1.27.3": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix extra rulers breaking the whole extension."
+                },
+                {
+                    "id": "",
+                    "content": "Fix Roll20 crashing if the cdn.userleap domain is blocked."
+                }
+            ]
+        },
+        "1.27.4": {
+            "info": {
+                "title": "More Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Some styling fixes."
+                },
+                {
+                    "id": "",
+                    "content": "Fix token layer drawing (thanks, ElementalSword, for the report!)."
+                },
+                {
+                    "id": "",
+                    "content": "Fix token bar position adjust."
+                },
+                {
+                    "id": "",
+                    "content": "Fix scale token names by size."
+                },
+                {
+                    "id": "",
+                    "content": "Fix change id when duplicating."
+                }
+            ]
+        },
+        "1.27.5": {
+            "info": {
+                "title": "Spring Cleaning",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix weird things happening to character attributes when importing a character (thanks, springwoods and Feistykitten, for the report!) "
+                },
+                {
+                    "id": "",
+                    "content": "Fix character importing requiring a page refresh sometimes for sheets to load on Firefox."
+                },
+                {
+                    "id": "",
+                    "content": "Tweaked the position of the toolbar button when the alternate toolbar menu module is on."
+                },
+                {
+                    "id": "",
+                    "content": "Add spaces to generated macros."
+                },
+                {
+                    "id": "",
+                    "content": "Styling fixes on the changelog popup."
+                }
+            ]
+        },
+        "1.27.6": {
+            "info": {
+                "title": "Small Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the token layer drawing module."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the change id when duplicating module."
+                }
+            ]
+        },
+        "1.27.7": {
+            "info": {
+                "title": "Hit Dice Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the hit dice module from not working until the token's character sheet has been opened (thanks, hightouch, for the report!)."
+                }
+            ]
+        },
+        "1.27.8": {
+            "info": {
+                "title": "Stupid Popup Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the stupid popup on the top left of your screen (BIG thank you to Keldin145014 for providing info on it!)"
+                },
+                {
+                    "id": "",
+                    "content": "Remove the 'Hide Tipsy Popup' module."
+                }
+            ]
+        },
+        "1.28": {
+            "info": {
+                "title": "Character Ability Exporter",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added character ability importing and exporting. (thanks, Keldin145014, for the suggestion!)"
+                },
+                {
+                    "id": "",
+                    "content": "Display actions in the right order when exporting action components on PF2 sheets."
+                },
+                {
+                    "id": "",
+                    "content": "Remove the Sprig workaround."
+                }
+            ]
+        },
+        "1.28.1": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed an issue that caused non Firefox browsers to barf when loading Roll20."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the Duplicate Button module causing issues."
+                }
+            ]
+        },
+        "1.28.2": {
+            "info": {
+                "title": "Loading Fix 2.0",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed a similar issue that caused non Firefox browsers to barf when loading Roll20."
+                }
+            ]
+        },
+        "1.28.3": {
+            "info": {
+                "title": "Radial Compact Mode Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the compact radial token menu not displaying attribute colors (thanks, Starblind, for the report!)"
+                }
+            ]
+        },
+        "1.28.4": {
+            "info": {
+                "title": "PDF Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed PDFs not properly loading on Chrome & Userscript."
+                }
+            ]
+        },
+        "1.28.5": {
+            "info": {
+                "title": "Token Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix the token layer drawing module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fix the custom token resize dialog being too big."
+                },
+                {
+                    "id": "",
+                    "content": "Disabled the scale token name module as updating it would be technically impractical in terms of performance."
+                },
+                {
+                    "id": "",
+                    "content": "Fix dialog text being unreadable in dark mode."
+                }
+            ]
+        },
+        "1.28.6": {
+            "info": {
+                "title": "Animated Backgrounds Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix token bars and names not rendering properly when the animated backgrounds module is enabled (thanks, ♠Hanzo♠ and Yussuma, for the report!)"
+                }
+            ]
+        },
+        "1.28.7": {
+            "info": {
+                "title": "Small Enhancement",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Make the Alternative Page toolbar draw behind popup dialogs."
+                }
+            ]
+        },
+        "1.28.8": {
+            "info": {
+                "title": "Rollable Table Export Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix 'Export' button not showing up on rollable table dialogs (thanks, UndefinedSnail and Sparc0, for the report!)"
+                }
+            ]
+        },
+        "1.28.9": {
+            "info": {
+                "title": "Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix animated backgrounds not rendering."
+                },
+                {
+                    "id": "",
+                    "content": "Fix token layer switching module."
+                },
+                {
+                    "id": "",
+                    "content": "Move the page toolbar, camera start position and animated background layer buttons to the left a bit."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed Roll20 sometimes not working if VTTES is disabled."
+                }
+            ]
+        },
+        "1.28.10": {
+            "info": {
+                "title": "Animated Background Opacity Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Implemented an experimental animatied background opacity bug fix."
+                }
+            ]
+        },
+        "1.28.11": {
+            "info": {
+                "title": "Extra Rulers & Token Select fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed the Extra Rulers UI not showing."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the 'Not selecting!' UI not showing."
+                }
+            ]
+        },
+        "1.28.12": {
+            "info": {
+                "title": "Extra Rulers & Token Select fixes 2: Electric Boogaloo",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed Extra rulers and 'Not selecting!' UI from showing due to Roll20 code reverts."
+                },
+                {
+                    "id": "",
+                    "content": "Added a revert failsafe for Extra Rulers and Token Layer Drawing."
+                }
+            ]
+        },
+        "1.28.13": {
+            "info": {
+                "title": "Small Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed animated backgrounds rendering on top of everything else."
+                },
+                {
+                    "id": "",
+                    "content": "Add some notes saying that other players need VTTES installed to hear libre audio and see animated backgrounds."
+                }
+            ]
+        },
+        "1.28.14": {
+            "info": {
+                "title": "Bug Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed extra rulers UI not showing up (thanks, 'i am goofy', for the report!)"
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the 'Not Selecting!' UI not showing up."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the 'Remember Text Tool' module settings mirroring option not working."
+                }
+            ]
+        },
+        "1.28.15": {
+            "info": {
+                "title": "Arrow Key Movement Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed canvas arrow key movement breaking the token arrow key movement."
+                },
+                {
+                    "id": "",
+                    "content": "Added a 'Reset' button to the Cone ruler UI."
+                }
+            ]
+        },
+        "1.28.16": {
+            "info": {
+                "title": "Some bug fixes and slight improvements",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Added a message saying that the preview UI is not supported for the time being."
+                },
+                {
+                    "id": "",
+                    "content": "Added an option to the force background color module to force change the backdrop color."
+                },
+                {
+                    "id": "",
+                    "content": "Added an option to the force background color module to only force change the backdrop and canvas colors when they are default values."
+                },
+                {
+                    "id": "",
+                    "content": "Added option to change the light color in the character token editor."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the force background color module from not setting the background color to the right color when animated backgrounds are on."
+                }
+            ]
+        },
+        "1.28.17": {
+            "info": {
+                "title": "Checkered Door/Window Fix (Chrome & Userscript Only)",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed assets being loaded at an invalid path on Chrome & Userscript (fixes checkered doors and windows)"
+                }
+            ]
+        },
+        "1.28.18": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed sometimes getting stuck on the loading screen."
+                }
+            ]
+        },
+        "1.28.19": {
+            "info": {
+                "title": "Bug Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed context menus not showing up when right-clicking on empty space (Roll20 bug)."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the macro generator module font color being unreadable in dark mode."
+                },
+                {
+                    "id": "",
+                    "content": "Rebound Extra Rulers hotkeys that start with q to start with g instead."
+                },
+                {
+                    "id": "",
+                    "content": "Listed available hotkeys on the extra rulers module description."
+                }
+            ]
+        },
+        "1.28.20": {
+            "info": {
+                "title": "New UI Fixes",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Removed the 'remember text tool settings' module as it's not reasonable to have due to internal state management fiascos."
+                },
+                {
+                    "id": "",
+                    "content": "Removed 'extra rulers' as Roll20 has better rulers now."
+                },
+                {
+                    "id": "",
+                    "content": "Removed the new UI warning."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the 'draw current layer' module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the 'mouse click select' token module not working."
+                },
+                {
+                    "id": "",
+                    "content": "Fixed the option to create a token from an image not appearing in the new context menu."
+                },
+                {
+                    "id": "",
+                    "content": "The option for a custom custom path length is now available all the time on the path tool and will be used when a new value is set."
+                }
+            ]
+        },
+        "1.28.21": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed a failure to load on Firefox, Chrome and Userscript."
+                },
+                {
+                    "id": "",
+                    "content": "Beware that Jumpgate is not supported!"
+                }
+            ]
+        },
+        "1.28.21.1": {
+            "info": {
+                "title": "Loading Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fixed a failure to load on Firefox, Chrome and Userscript."
+                },
+                {
+                    "id": "",
+                    "content": "Beware that Jumpgate is not supported!"
+                }
+            ]
+        },
+        "1.28.22": {
+            "info": {
+                "title": "LibreAudio Fix",
+                "media": ""
+            },
+            "changes": [
+                {
+                    "id": "",
+                    "content": "Fix direct link playback with LibreAudio (some file hosts may still not work due to changes on their side)"
                 }
             ]
         }

@@ -2,18 +2,165 @@ import {R20Module} from "../../utils/R20Module";
 import {DOM} from "../../utils/DOM";
 import {R20} from "../../utils/R20";
 import {LoadingDialog} from "../../utils/DialogComponents";
-import {SheetTab} from "../../utils/SheetTab";
+import {SheetTab, SheetTabSheetInstanceData} from "../../utils/SheetTab";
 import {replaceAll} from "../../utils/MiscUtils";
 import {IGeneratedMacro, IMacroDiff, IMacroFactory, IMacroGenerator} from "./IMacroGenerator";
 import OGL5eByRoll20 from "../../macro/OGL5eByRoll20";
-import PickMacroGeneratorsDialog from "./PickMacroGeneratorsDialog";
-import {Character, CharacterAbility} from "roll20";
+import PF2ByRoll20 from "../../macro/PF2ByRoll20";
 import DuplicateResolveDialog from "./DuplicateResolveDialog";
 import VerifyMacrosDialog from "./VerifyMacrosDialog";
 import NoMacrosDialog from "./NoMacrosDialog";
 import lexCompare from "../../utils/LexicographicalComparator";
 import {FolderingMethod} from "./FolderingMethod";
 import {exhaustTypeSafe} from "../../utils/TypescriptUtils";
+import { DialogBase } from "../../utils/DialogBase";
+import { Dialog, DialogHeader, DialogFooter, DialogFooterContent, DialogBody, CheckboxWithText } from "../../utils/DialogComponents";
+
+import {isChromium} from "../../utils/BrowserDetection";
+import {copy} from "../../utils/MiscUtils";
+
+class PickMacroGeneratorsDialog extends DialogBase<null> {
+    private parent: MacroGeneratorModule;
+    
+    constructor(parent: MacroGeneratorModule) {
+        super("r20es-big-dialog");
+        this.parent = parent;
+    }
+
+    public show = this.internalShow;
+
+    submit = (e: any, checkboxes: HTMLInputElement[]) =>  {
+        this.parent.categoryFilter = checkboxes.reduce((accum, checkbox) => { accum[checkbox.value] = checkbox.checked; return accum; }, {});
+        this.close(true);
+        e.stopPropagation();
+    }
+
+    onTokenActionChecked = (e: any) => {
+        this.parent.setIsTokenAction = e.target.checked;
+        e.stopPropagation();
+    }
+
+    onSelectChange = (e: any) => {
+        this.parent.activeGenerator = this.parent.generators[e.target.value];
+
+        this.rerender();
+        
+        // dialog is not centered after rerendering on chrome
+        if (isChromium()) {
+            this.recenter();
+        }
+
+        e.stopPropagation();
+    }
+
+    generateCheckboxes() {
+        let elems = [];
+        let checkboxes = [];
+
+        for(let factoryIndex = 0; factoryIndex < this.parent.activeGenerator.macroFactories.length; factoryIndex++) {
+            const data = this.parent.activeGenerator.macroFactories[factoryIndex]
+
+            const root = (
+                <div>
+                    <input style={{ verticalAlign: "middle", marginRight: "4px" }} type="checkbox" value={factoryIndex} checked/>
+                    <span style={{ verticalAlign: "middle" }}>{data.name}</span>
+                    { data.createFolderEntries &&
+                        <span style={{float: "right", paddingRight: "16px", color: "#757575"}}>Folderable</span>
+                    }
+                </div>
+
+            ) as any;
+
+            elems.push(root);
+            checkboxes.push(root.firstElementChild);
+        }
+
+        return { elems: elems, checkboxes: checkboxes };
+    }
+
+    onToggleAll = (e: any) => {
+        $(this.getRoot()).find("input").each((_: any, input: any) => { 
+            if (input["ignoreToggleAll"]) return; 
+            input.checked = !input.checked; 
+        });
+        e.stopPropagation();
+    };
+
+    onChangeFolderStatus = (e: any) => {
+        this.parent.folderingMethod = e.target.value;
+    };
+
+    public render(): HTMLElement {
+        const data: any = this.parent.activeGenerator ? this.generateCheckboxes() : {};
+        const checkboxDivs = data.elems;
+        const checkboxes = data.checkboxes;
+
+        const folderingOptions = [];
+        {
+            for(const key in FolderingMethod) {
+                const val = FolderingMethod[key];
+                folderingOptions.push(<option value={val}>{val}</option>)
+            }
+        }
+
+        const selectionOptions = [];
+        {
+            for(const key in this.parent.generators) {
+                const gen = this.parent.generators[key];
+                selectionOptions.push(<option value={gen.id}>{gen.name}</option>)
+            }
+        }
+
+        return (
+            <Dialog>
+                <DialogHeader>
+                    <h2>Sheet, category selection.</h2>
+                </DialogHeader>
+
+                <DialogBody>
+                    <select value={this.parent.activeGenerator ? this.parent.activeGenerator.id : ""} onChange={this.onSelectChange}>
+                        <option value="">Select a sheet</option>
+                        {selectionOptions}
+                    </select>
+
+                    {checkboxDivs &&
+                        <div style={{ paddingLeft: "12px", paddingBottom: "12px" }}>
+                            <button className="btn" onClick={this.onToggleAll}>Toggle All</button>
+                            {checkboxDivs}
+                            <hr />
+
+                            <select value={this.parent.folderingMethod} onChange={this.onChangeFolderStatus}>
+                                {folderingOptions}
+                            </select>
+
+                            <CheckboxWithText
+                                ignoreToggleAll
+                                checked={this.parent.setIsTokenAction}
+                                onChange={this.onTokenActionChecked}
+                                checkboxText="Show as Token Action"
+                            />
+
+                            <CheckboxWithText
+                                ignoreToggleAll
+                                checked={this.parent.sortLex}
+                                onChange={(e) => this.parent.sortLex = e.target.checked}
+                                checkboxText="Sort lexicographically"
+                                />
+                        </div>
+
+                    }
+                </DialogBody>
+
+                <DialogFooter>
+                    <DialogFooterContent>
+                        <button className="btn" onClick={this.close}>Close</button>
+                        <button className="btn" style={{ float: "right" }} disabled={!("elems" in data)} onClick={e => this.submit(e, checkboxes)}>OK</button>
+                    </DialogFooterContent>
+                </DialogFooter>
+            </Dialog> as any
+        )
+    }
+}
 
 class MacroGeneratorModule extends R20Module.SimpleBase {
     private pickerDialog: PickMacroGeneratorsDialog;
@@ -24,7 +171,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
 
     public generators: { [id: string]: IMacroGenerator } = {};
 
-    private activePc: Character;
+    private activePc: Roll20.Character;
     public activeGenerator: IMacroGenerator;
 
     public setIsTokenAction: boolean = true;
@@ -43,6 +190,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
 
         const addGen = gen => this.generators[gen.id] = gen;
         addGen(OGL5eByRoll20);
+        addGen(PF2ByRoll20);
     }
 
     private showVerify() {
@@ -53,7 +201,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
             const name = val.get<string>("name");
             accum[name] = val;
             return accum;
-        }, {} as { [id: string]: CharacterAbility });
+        }, {} as { [id: string]: Roll20.CharacterAbility });
 
         this.macroBuffer.forEach(macro => {
             if (macro.name in abilitiesByName) {
@@ -88,7 +236,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
         // generate an array of macros in wanted categories
         let data: IGeneratedMacro[] = [];
 
-        const makeFolderHeader = (title: string= "") => `/w @{character_name} @{wtype} &{template:default}{{name=@{character_name} ${title}}}`;
+        const makeFolderHeader = (title: string= "") => `/w @{character_name} @{wtype} &{template:default}{{name=@{character_name} ${title}}} `;
         const getCategoryName = (factory: IMacroFactory) => factory.categoryNameModifier ? factory.categoryNameModifier(factory.name) : factory.name;
 
         let uberFolderBuffer = makeFolderHeader();
@@ -118,7 +266,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
                         let buffer = makeFolderHeader(name);
 
                         for (const str of folder) {
-                            buffer += `{{${str}}}`;
+                            buffer += `{{${str}}} `;
                         }
 
                         data.push({
@@ -138,7 +286,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
                         }
 
                         const name = getCategoryName(factory);
-                        uberFolderBuffer += `{{• ${name}=${buffer}}}`;
+                        uberFolderBuffer += `{{• ${name}=${buffer}}} `;
 
                         break;
                     }
@@ -197,49 +345,56 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
     }
 
     private onVerifyDialogClose = (e: any) => {
-        e.stopPropagation();
+      e.stopPropagation();
 
-        if(!this.verifyDialog.isSuccessful()) return;
+      if(!this.verifyDialog.isSuccessful()) return;
 
-        this.generateMacros();
+      this.generateMacros();
     }
 
     private onButtonClick = (e: any) => {
-        e.stopPropagation();
+      e.stopPropagation();
 
-        const attrib = "data-characterid";
-        const elem = $(e.target).closest(`[${attrib}]`)[0];
-        if (!elem) {
-            console.error("Failed to find character id for macro generation");
-            return;
-        }
+console.log(e.target);
+      const id = e.target.getAttribute("data-characterid");
+      if(!id) {
+        console.error("Failed to find character id for macro generation");
+        return;
+      }
 
-        const id = elem.getAttribute(attrib);
-        const pc = R20.getCharacter(id);
-        if (!pc) {
-            console.error(`Failed to get character for macro generation: getCharacter("${id}") failed.`);
-            return;
-        }
+      const pc = R20.getCharacter(id);
+      if (!pc) {
+        console.error(`Failed to get character for macro generation: getCharacter("${id}") failed.`);
+        return;
+      }
 
-        this.activePc = pc;
-        this.activeGenerator = null;
-        this.categoryFilter = {};
-        this.byNameMacroTable = {};
-        this.macroBuffer = [];
-        this.modifiedMacros = [];
-        this.addedMacros = [];
+      this.activePc = pc;
+      this.activeGenerator = null;
+      this.categoryFilter = {};
+      this.byNameMacroTable = {};
+      this.macroBuffer = [];
+      this.modifiedMacros = [];
+      this.addedMacros = [];
 
-        this.pickerDialog.show();
+      this.pickerDialog.show();
     }
 
-    private renderSheet = () => {
-        return (
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <button style={{ width: "50%", height: "30px", display: "flex", justifyContent: "center" }} className="btn" onClick={this.onButtonClick}>
-                    Open Generate Macros Dialog
-            </button>
-            </div>
-        );
+    private renderSheet = (instance: SheetTabSheetInstanceData<null>) => {
+      return (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <input
+            type="button"
+            style={{ 
+              width: "50%", 
+              height: "30px"
+            }} 
+            className="button" 
+            onClick={this.onButtonClick}
+            data-characterid={instance.characterId}
+            value="Open Generate Macros Dialog"
+          />
+        </div>
+      );
     }
 
     private onDupeDialogClose = (e: any) => {
@@ -300,9 +455,11 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
                     });
                 }
 
-                pc.view.render();
+                R20.rerender_character_sheet(pc);
+
             } catch (err) {
                 console.error(err);
+                R20.rerender_character_sheet(pc);
             }
 
             plsWait.dispose();
@@ -335,6 +492,7 @@ class MacroGeneratorModule extends R20Module.SimpleBase {
     }
 }
 
-if (R20Module.canInstall()) new MacroGeneratorModule().install()
+export default () => {
+  new MacroGeneratorModule().install();
+};
 
-export default MacroGeneratorModule;

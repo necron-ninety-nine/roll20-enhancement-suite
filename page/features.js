@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Configs from '../src/Configs';
-import NavBar from 'NavBar.js'
+import {VTTES_MODULE_CONFIGS}from '../src/Configs';
+import GTag from './GTag'
+import NavBar from './NavBar'
 
 function FeatureCard(props) {
     const cfg = props.config;
@@ -38,34 +39,35 @@ function FeatureCard(props) {
 }
 
 function Features() {
-    const cards = [];
-    for (const id in Configs) {
-        const config = Configs[id];
-        if (config.name && config.description) {
-            cards.push(<div>
-                <h2 id={id}>{config.name}</h2>
-                <FeatureCard key={id} config={config} />
-                <hr />
-            </div>);
-        }
+  const cards = [];
+  for(const id in VTTES_MODULE_CONFIGS) {
+    const config = VTTES_MODULE_CONFIGS[id];
+    if(config.name && config.description) {
+      cards.push(<div>
+        <h2 id={id}>{config.name}</h2>
+        <FeatureCard key={id} config={config} />
+        <hr />
+      </div>);
     }
-    return (
-        <div>
-            <NavBar />
+  }
+  return (
+    <div>
+      <NavBar />
 
-            <div className="container">
-                <h1>Features</h1>
-                <hr style={{ marginTop: "0" }} />
+      <div className="container">
+        <h1>Features</h1>
+        <hr style={{ marginTop: "0" }} />
 
-                {cards}
-            </div>
-        </div>
-    );
+        {cards}
+      </div>
+
+      <GTag/>
+    </div>
+  );
 }
-
 
 if(typeof(window) !== "undefined" && window.document) {
-    ReactDOM.render(<Features />, document.getElementById("root"));
+  ReactDOM.render(<Features />, document.getElementById("root"));
 }
 
-export default Features;
+export default Features

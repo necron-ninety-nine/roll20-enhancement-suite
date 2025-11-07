@@ -7,10 +7,10 @@ export default class ChangelogPopup extends DOM.ElementBase {
     protected internalRender(): HTMLElement {
         return (
             <div className="r20es-welcome">
-                <h2>R20ES has been updated</h2>
+                <h2>VTTES has been updated</h2>
                 <ChangelogWidget listAllVersions={false}/>
                 <input
-                    className="btn btn-primary"
+                    className="btn"
                     style={{ width: "100%", height: "auto", boxSizing: "border-box" }}
                     type="button"
                     onClick={this.dispose}

@@ -1,5 +1,5 @@
 import { DOM } from "../../utils/DOM";
-import { getExtUrlFromPage, strIsNullOrEmpty } from "../../utils/MiscUtils";
+import { strIsNullOrEmpty } from "../../utils/MiscUtils";
 import { R20 } from "../../utils/R20";
 import {Config }from "../../utils/Config";
 import StringEdit from "./StringEdit";
@@ -112,7 +112,7 @@ export default class HookConfig extends DOM.ElementBase {
                         <h3 title={this.hook.id + " " + this.hook.filename}>{this.hook.name}</h3>
                         <hr style={{ marginTop: "4px" }} />
 
-                        <div className="r20es-indent description">
+                        <div className="r20es-indent">
                             <p>{this.hook.description}</p>
 
                             <p>{urlHyperlinks}</p>
